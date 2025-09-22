@@ -1,0 +1,149 @@
+/* Additional styles for image-to-text page */
+#image-to-text {
+	margin-top: 40px;
+	background: #e0f7fa;
+	border-radius: 20px;
+	box-shadow: 0 4px 16px rgba(80, 227, 194, 0.10);
+	padding: 32px 24px;
+	width: 100%;
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+}
+
+#image-to-text h2 {
+	font-size: 2rem;
+	color: #0097a7;
+	margin-bottom: 10px;
+}
+
+#image-input {
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+}
+
+#process-image, #read-extracted-text {
+	font-size: 1.3rem;
+	padding: 14px 30px;
+	border: none;
+	border-radius: 12px;
+	background: linear-gradient(90deg, #4a90e2 0%, #50e3c2 100%);
+	color: #fff;
+	cursor: pointer;
+	box-shadow: 0 2px 8px rgba(80, 227, 194, 0.15);
+	transition: background 0.2s, transform 0.2s;
+	margin-bottom: 10px;
+}
+
+#process-image:hover, #read-extracted-text:hover,
+#process-image:focus, #read-extracted-text:focus {
+	background: linear-gradient(90deg, #50e3c2 0%, #4a90e2 100%);
+	transform: scale(1.05);
+	outline: none;
+}
+
+#extracted-text {
+	font-size: 1.2rem;
+	border-radius: 10px;
+	border: 2px solid #0097a7;
+	padding: 14px;
+	width: 100%;
+	max-width: 500px;
+	min-height: 100px;
+	resize: vertical;
+	background: #fff;
+	color: #333;
+	box-shadow: 0 1px 4px rgba(74, 144, 226, 0.07);
+}
+/* Add styles to center the content, make buttons large and easy to click, use large readable fonts, and make the page colorful and friendly for kids. Use soft background colors and space between sections. */
+
+body {
+	background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+	min-height: 100vh;
+	margin: 0;
+	font-family: 'Comic Sans MS', 'Comic Sans', cursive, Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+header h1 {
+	font-size: 2.5rem;
+	color: #4a90e2;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	text-shadow: 2px 2px 8px #fff7c0;
+}
+
+main {
+	width: 100%;
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	align-items: center;
+}
+
+section {
+	background: #fffbe7;
+	border-radius: 20px;
+	box-shadow: 0 4px 16px rgba(74, 144, 226, 0.08);
+	padding: 32px 24px;
+	width: 100%;
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+}
+
+section h2 {
+	font-size: 2rem;
+	color: #f8b500;
+	margin-bottom: 10px;
+}
+
+button {
+	font-size: 1.5rem;
+	padding: 16px 36px;
+	border: none;
+	border-radius: 12px;
+	background: linear-gradient(90deg, #4a90e2 0%, #50e3c2 100%);
+	color: #fff;
+	cursor: pointer;
+	box-shadow: 0 2px 8px rgba(80, 227, 194, 0.15);
+	transition: background 0.2s, transform 0.2s;
+	margin-bottom: 10px;
+}
+
+button:hover, button:focus {
+	background: linear-gradient(90deg, #50e3c2 0%, #4a90e2 100%);
+	transform: scale(1.05);
+	outline: none;
+}
+
+textarea {
+	font-size: 1.2rem;
+	border-radius: 10px;
+	border: 2px solid #f8b500;
+	padding: 14px;
+	width: 100%;
+	max-width: 500px;
+	min-height: 100px;
+	resize: vertical;
+	background: #fff;
+	color: #333;
+	box-shadow: 0 1px 4px rgba(74, 144, 226, 0.07);
+}
+
+@media (max-width: 700px) {
+	main, section {
+		max-width: 95vw;
+	}
+	textarea {
+		max-width: 90vw;
+	}
+}
