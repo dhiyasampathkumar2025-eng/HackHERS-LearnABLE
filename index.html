@@ -1,0 +1,99 @@
+    <!-- Feedback Button and Modal moved to end of body for correct fixed positioning -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnAble Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="transition.css">
+</head>
+<body>
+    <!-- Add fade-in class for arrival animation -->
+    <body class="fade-in">
+    <header class="main-header">
+        <div class="header-left">
+            <!-- Flask/Jinja: src="{{ logo_url }}" | Django: src="{{ logo_url }}" -->
+            <a href="/" class="logo-link">
+                <img src="https://via.placeholder.com/40" alt="LearnAble logo" class="site-logo" id="siteLogo">
+                <span class="site-title">LearnAble</span>
+            </a>
+        </div>
+        <div class="header-right">
+            <div class="profile-container" id="profileContainer">
+                <!-- Flask/Django: src="{{ profile_pic_url }}" and username -->
+                <img src="https://via.placeholder.com/40" alt="Profile Picture" class="profile-pic" id="profilePic">
+                <span class="username-label" id="username">Guest</span>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-item"><strong>Total Points:</strong> <span id="points">120</span></div>
+                    <div class="dropdown-item"><strong>Badge:</strong> <span id="badge">Gold</span></div>
+                    <div class="dropdown-divider"></div>
+                    <button id="signOut" class="dropdown-signout">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Dark rainbow background and glitter canvas -->
+    <div class="rainbow-bg-gradient" aria-hidden="true"></div>
+    <canvas id="glitter-canvas" class="glitter-canvas" aria-hidden="true"></canvas>
+    <div class="rainbow-dark-overlay" aria-hidden="true"></div>
+    <main>
+        <section class="dashboard-grid">
+            <!-- ...existing dashboard cards... -->
+            <a href="visual-impairment.html" class="dashboard-card" id="card-visual" onclick="startTransition('visual-impairment.html'); return false;">
+                <h2>Visual Impairment</h2>
+                <p>Resources and tools for users with visual challenges.</p>
+            </a>
+            <a href="hearing-impairment.html" class="dashboard-card" id="card-hearing" target="_self">
+                <h2>Hearing Impairment</h2>
+                <p>Support and content for users with hearing difficulties.</p>
+            </a>
+            <a href="learning-disabilities.html" class="dashboard-card" id="card-learning" target="_self">
+                <h2>Learning Disabilities</h2>
+                <p>Guidance and materials for diverse learning needs.</p>
+            </a>
+            <a href="autism.html" class="dashboard-card" id="card-autism" target="_self">
+                <h2>Autism</h2>
+                <p>Inclusive resources for users on the autism spectrum.</p>
+            </a>
+        </section>
+        <!-- Voice Navigation System -->
+        <div class="voice-nav-container">
+          <h1 class="voice-title">LearnAble Voice Navigation</h1>
+          <div class="mic-wrapper">
+            <button id="micBtn" class="mic-btn" aria-label="Start voice recognition">
+              <span class="mic-icon" id="micIcon">🎤</span>
+            </button>
+          </div>
+          <div class="voice-text" id="voiceText">Say a command like "Go to Home"...</div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="background.js"></script>
+    <script src="script.js"></script>
+    <script src="transition.js"></script>
+
+    <!-- Feedback Button and Modal -->
+    <button id="feedbackBtn" class="feedback-btn" aria-label="Open feedback form">
+        <!-- SVG speech bubble icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="12" fill="#4facfe"/>
+            <path d="M7 10c0-1.657 2.239-3 5-3s5 1.343 5 3-2.239 3-5 3c-.338 0-.67-.018-.995-.052l-2.505.802.5-1.5C7.5 12.25 7 11.18 7 10z" fill="#fff"/>
+        </svg>
+    </button>
+    <div id="feedbackOverlay" class="feedback-overlay" tabindex="-1" aria-hidden="true"></div>
+    <div id="feedbackModal" class="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle" aria-hidden="true">
+        <div class="feedback-modal-content">
+            <button class="feedback-close" id="feedbackCloseBtn" aria-label="Close feedback form">&times;</button>
+            <h2 id="feedbackTitle">Send Feedback</h2>
+            <textarea id="feedbackText" placeholder="Type your feedback..." rows="4" aria-label="Feedback text"></textarea>
+            <div class="feedback-actions">
+                <button id="voiceBtn" class="voice-btn" aria-pressed="false" aria-label="Record voice feedback">🎤 Voice Input</button>
+                <span id="voiceStatus" class="voice-status" aria-live="polite"></span>
+            </div>
+            <button id="submitFeedbackBtn" class="submit-feedback-btn">Submit</button>
+        </div>
+    </div>
+</body>
+</body>
+</html>

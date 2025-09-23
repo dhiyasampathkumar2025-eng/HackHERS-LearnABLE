@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Your Subject | LearnAble</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #181825;
+      position: relative;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
+    .subject-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .subject-heading {
+      color: #e0e0e0;
+      font-size: 2.3rem;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-align: center;
+      margin-bottom: 2.2rem;
+    }
+    .subject-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+      width: 100%;
+      max-width: 340px;
+    }
+    .subject-btn {
+      font-size: 1.2rem;
+      padding: 1rem 2.5rem;
+      border-radius: 1.2rem;
+      border: none;
+      background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+      color: #181825;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 12px #0002;
+      transition: background 0.18s, color 0.18s, transform 0.15s;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .subject-btn:hover, .subject-btn:focus {
+      background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+      color: #fff;
+      transform: scale(1.04);
+      outline: none;
+    }
+    @media (max-width: 600px) {
+      .subject-heading {
+        font-size: 1.3rem;
+      }
+      .subject-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="subject-container">
+    <h1 class="subject-heading" id="subjectHeading">Select Your Subject</h1>
+    <div class="subject-buttons">
+      <button class="subject-btn" data-subject="ENGLISH">ENGLISH</button>
+      <button class="subject-btn" data-subject="MATHS">MATHS</button>
+      <button class="subject-btn" data-subject="SCIENCE">SCIENCE</button>
+    </div>
+  </div>
+  <script>
+    // Utility to get query parameter by name
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Display selected class in heading if present
+    document.addEventListener('DOMContentLoaded', function() {
+      const classNum = getQueryParam('class') || 'Unknown';
+      const heading = document.getElementById('subjectHeading');
+      if (classNum && classNum !== 'Unknown') {
+        heading.textContent = `Class ${classNum} – Select Your Subject`;
+      }
+
+      // Add click handlers for subject buttons
+      document.querySelectorAll('.subject-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const subject = btn.getAttribute('data-subject');
+          alert(`You selected Class ${classNum}, Subject: ${subject}`);
+          // TODO: Redirect to subject page or call backend
+        });
+      });
+    });
+  </script>
+</body>
+</html>

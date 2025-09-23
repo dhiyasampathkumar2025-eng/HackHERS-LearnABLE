@@ -1,0 +1,19 @@
+/* transition.css: Fade transitions for page navigation */
+
+body {
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+body.fade-in {
+  opacity: 0;
+}
+
+body.fade-in.loaded {
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1);
+}
